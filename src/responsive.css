@@ -1,8 +1,4 @@
-@media screen and (min-width: 500px) {
-  #desktopList {
-    padding-left: 100px;
-    -webkit-columns: 1;
-  }
+@media screen and (max-width: 500px) {
   .card {
     position: relative;
     text-align: center;
@@ -67,9 +63,21 @@
     position: absolute;
     left: 20%;
   }
+  ul {
+    list-style: none;
+    column-count: 1;
+    column-gap: 20px;
+    column-fill: auto;
+  }
+
+  ul > div {
+    display: inline-block;
+    width: 100%;
+    border-top: 1px solid #000;
+  }
 }
 
-@media only screen and (min-width: 830px) {
+@media screen and (max-width: 1339px) {
   .Desktop {
     position: absolute;
     width: 100%;
@@ -87,11 +95,7 @@
   .search-box input[type="text"] {
     font-size: 0.743rem;
   }
-  #desktopList {
-    padding-right: 100px;
-    padding-left: 150px;
-    -webkit-columns: 2;
-  }
+
   .desktopListContainer {
     width: 100%;
     position: relative;
@@ -212,12 +216,27 @@
     display: flex;
     flex: 0.25;
   }
+
+  ul {
+    list-style: none;
+    column-count: 2 !important;
+    column-gap: 20px;
+    column-fill: auto;
+  }
+
+  ul > div {
+    display: inline-block;
+    width: 100%;
+    border-top: 1px solid #000;
+  }
 }
+
 /*Responsivness for a bigger pc screen*/
-@media only screen and (min-width: 1340px) {
+@media screen and (min-width: 1340px) {
   .Desktop {
-    position: absolute;
+    position: relative;
     background-color: #f6f6f6;
+    width: 100%;
   }
   .search-box input[type="text"]:focus,
   .search-box input[type="text"]:not(:placeholder-shown) {
@@ -228,20 +247,36 @@
     font-size: 0.9rem;
   }
   #desktopList {
-    padding-right: 10px;
-    padding-left: 100px;
+    width: 90%;
     position: relative;
-    left: -1%;
-    -webkit-columns: 4;
+    left: 3%;
+    display: list-item;
+    column-count: 4;
+    column-gap: 20px;
+    column-fill: auto;
+  }
+
+  ul {
+    list-style: none;
+    column-count: 4;
+    column-gap: 50px;
+    column-fill: auto;
+  }
+
+  ul > div {
+    display: inline-block;
+    width: 100%;
+    border-top: 1px solid #000;
   }
 
   .card {
+    display: block;
+    column-span: 1;
     position: relative;
     text-align: center;
     color: white;
     padding-top: 20px;
     width: 100%;
-
     border: solid 1px gray;
     margin-bottom: 20px;
   }
@@ -251,8 +286,8 @@
   }
 
   .card-price {
-    width: 9rem;
-    height: 9rem;
+    width: 10rem;
+    height: 6rem;
     position: absolute;
     top: 0;
     background-color: white;
@@ -265,8 +300,9 @@
   .card-img {
     position: relative;
     width: 100%;
-    height: auto;
+    height: 100%;
     top: -20px;
+    object-fit: contain;
   }
 
   .card-txt {
@@ -301,7 +337,7 @@
   .price {
     font-size: 1.5rem;
     position: absolute;
-    left: 20%;
+    left: 10%;
   }
 
   .top-card {
@@ -321,7 +357,7 @@
     height: 0%;
     width: 100%;
     top: 10;
-    transition: height 0.5s ease-out;
+    transition: height 0.2s ease-out;
     background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.466) 0%,

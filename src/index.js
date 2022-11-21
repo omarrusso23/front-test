@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import "./responsive.css";
+import SearchContextProvider from "./Context/searchContext";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import "./responsive.css";
+import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <SearchContextProvider>
+      <App />
+    </SearchContextProvider>
   </React.StrictMode>
 );
 

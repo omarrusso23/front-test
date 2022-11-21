@@ -1,11 +1,10 @@
 import React from "react";
-import FrontPage from "./Pages/FrontPage";
-import "./App.css";
+import PageManager from "./Pages/PageManager";
 
 function App() {
   return (
     <div className="App">
-      <FrontPage></FrontPage>
+      <PageManager></PageManager>
     </div>
   );
 }

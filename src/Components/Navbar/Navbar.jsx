@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState, useGlobalContext } from "react";
 import "./Navbar.css";
+import SearchBar from "./searchBar";
 
 function Navbar() {
   return (
     <div className="Navbar">
+      {/*Navbar Logo*/}
       <div className="nav-logo"></div>
+      {/*Navbar Search bar*/}
       <div className="nav-search">
-        <form className="search-box">
-          <input type="text" placeholder="You're looking for something?" />
-          <button type="reset"></button>
-        </form>
+        <SearchBar></SearchBar>
       </div>
     </div>
   );
