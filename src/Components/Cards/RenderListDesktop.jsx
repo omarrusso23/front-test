@@ -25,9 +25,10 @@ const RenderingArrayOfObjects = () => {
         <div className="card" key={element.id}>
           <div className="top-card">
             <div className="likes">
-              {element.likes_count}
-              <br></br>
-              {element.liked}
+              <div className="like">
+                <span className="like-txt">{element.likes_count}</span>
+                <button className="like-logo-btn"></button>
+              </div>
             </div>
           </div>
           <div className="card-price">
@@ -39,9 +40,13 @@ const RenderingArrayOfObjects = () => {
             className="card-img"
           ></img>
 
-          <div className="card-txt">
-            <p className="title">{element.title}</p>
-            <p className="author">by {element.author}</p>
+          <div className="txt-container">
+            <div className="card-txt">
+              <p className="title">{element.title}</p>
+              <p className="author">
+                <span className="color-span">by</span> {element.author}
+              </p>
+            </div>
           </div>
         </div>
       );
@@ -67,13 +72,6 @@ const RenderingArrayOfObjects = () => {
     const response = await fetch("http://localhost:3100/images?page=" + page);
     const data = await response.json();
     return data;
-  };
-
-  const search = () => {
-    let x = document.getElementById("searching").value;
-    let filterArr = list.filter((item) => item.title.includes(x));
-    setItems(filterArr);
-    console.log(searchContext.query);
   };
 
   //We call the Api

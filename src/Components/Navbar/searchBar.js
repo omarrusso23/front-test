@@ -10,18 +10,20 @@ const SearchBar = (props) => {
   };
 
   return (
-    <div>
-      <form className="search-box">
-        <input
-          type="text"
-          placeholder="You're looking for something?"
-          id="searching"
-          onChange={(e) => setSearchQuery(e.target.value)}
-          value={searchQuery}
-          className="searchComponent"
-        />
-        <button type="reset" onClick={searchQueryHandler}></button>
-      </form>
+    <div className="search-container">
+      <input
+        type="text"
+        placeholder="You're looking for something?"
+        id="searching"
+        name="search"
+        onChange={(e) => setSearchQuery(e.target.value)}
+        value={searchQuery}
+        className="search-input"
+      />
+
+      <button className="search-btn" onClick={searchQueryHandler}>
+        <i class="fas fa-search"></i>
+      </button>
     </div>
   );
 };

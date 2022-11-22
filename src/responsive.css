@@ -1,99 +1,23 @@
-@media screen and (max-width: 500px) {
-  .card {
-    position: relative;
-    text-align: center;
-    color: white;
-    padding-top: 20px;
-    width: 55%;
-    left: 15%;
-    border: solid 1px gray;
-    margin-bottom: 40px;
-  }
-
-  .card-price {
-    width: 10rem;
-    height: 10rem;
+@media screen and (max-width: 800px) {
+  /*Desktop CSS and ul CSS*/
+  .Desktop {
     position: absolute;
-    top: 0;
-    background-color: white;
-    color: black;
-    -webkit-clip-path: polygon(100% 0, 0 0, 0 100%);
-    clip-path: polygon(100% 0, 0 0, 0 100%);
-    z-index: 1;
-  }
-
-  .card-img {
-    position: relative;
     width: 100%;
-    height: auto;
-    top: -20px;
+    background-color: #f6f6f6;
   }
 
-  .card-txt {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    background-color: white;
-    text-align: center;
-    color: black;
-    height: 5rem;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .title {
-    position: absolute;
-    top: -25%;
-    width: 100%;
-    font-family: OpenSans;
-    font-size: 1.8rem;
-  }
-
-  .author {
-    position: absolute;
-    bottom: -15%;
-    width: 100%;
-    font-family: Myriad Pro;
-    font-size: 1.2rem;
-  }
-
-  .price {
-    font-size: 1.5rem;
-    position: absolute;
-    left: 20%;
-  }
   ul {
     list-style: none;
-    column-count: 1;
-    column-gap: 20px;
+    column-count: 1 !important;
     column-fill: auto;
+    padding-left: 30px;
+    overflow: hidden;
   }
 
   ul > div {
     display: inline-block;
     width: 100%;
     border-top: 1px solid #000;
-  }
-}
-
-@media screen and (max-width: 1339px) {
-  .Desktop {
-    position: absolute;
-    width: 100%;
-    background-color: #f6f6f6;
-    overflow: hidden;
-  }
-  .navbar {
-    width: 100%;
-  }
-  .search-box input[type="text"]:focus,
-  .search-box input[type="text"]:not(:placeholder-shown) {
-    width: 16rem;
-    transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  }
-  .search-box input[type="text"] {
-    font-size: 0.743rem;
   }
 
   .desktopListContainer {
@@ -102,6 +26,8 @@
     display: flex;
     justify-content: center;
   }
+
+  /*Card CSS*/
   .card {
     position: relative;
     text-align: center;
@@ -111,6 +37,224 @@
     width: 100%;
     border: solid 1px gray;
     margin-bottom: 40px;
+    height: 30rem;
+  }
+
+  .card-price {
+    width: 10rem;
+    height: 6rem;
+    position: absolute;
+    top: 0;
+    background-color: white;
+    color: black;
+    -webkit-clip-path: polygon(100% 0, 0 0, 0 100%);
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+    z-index: 1;
+  }
+
+  .card-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: -20px;
+    object-fit: contain;
+  }
+
+  .txt-container {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    color: black;
+    height: 10rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .color-span {
+    color: #c2c2bd;
+  }
+
+  .card-txt {
+    height: 40%;
+  }
+
+  .like-logo-btn {
+    background-image: url("https://www.freeiconspng.com/uploads/black-like-icon-png-13.png");
+    background-color: white;
+    position: relative;
+    height: 30px;
+    width: 30px;
+    top: -5px;
+    background-size: contain;
+    object-fit: fill;
+    border: transparent;
+  }
+
+  .like-txt {
+    position: relative;
+    top: -10px;
+    font-size: 1.3rem;
+    padding-right: 10px;
+  }
+
+  .title {
+    position: relative;
+    width: 100%;
+    font-family: OpenSans;
+    font-size: 1.8rem;
+  }
+
+  .author {
+    position: relative;
+    bottom: 15px;
+    width: 100%;
+    font-family: Myriad Pro;
+    font-size: 1.2rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+    position: absolute;
+    left: 10%;
+  }
+
+  /*Navbar CSS*/
+  .navbar {
+    width: 100%;
+  }
+
+  .nav-logo {
+    width: 30%;
+    margin: 10px;
+    margin-left: 10px;
+    background-image: url("https://i.postimg.cc/DZ2H1n6r/front-test-icon.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .nav-search {
+    display: flex;
+    flex: 1;
+    margin-top: 40px;
+    margin-right: 10px;
+    justify-content: right;
+    height: 2.5rem;
+    width: 50%;
+  }
+
+  /*Search Bar CSS*/
+  .search-container {
+    background: #fff;
+    height: 30px;
+    border-radius: 30px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.6s;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+      inset -7px -7px 10px 0px rgba(0, 0, 0, 0.1),
+      7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.3),
+      -4px -4px 6px rgba(116, 125, 136, 0.2);
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+      -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .search-container:hover > .search-input {
+    width: 11rem;
+  }
+
+  .search-container .search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 0px;
+    font-weight: 500;
+    font-size: 13px;
+    transition: 0.8s;
+  }
+
+  .search-container .search-btn .fas {
+    color: #5cbdbb;
+  }
+
+  .search-btn {
+    height: 100%;
+  }
+}
+
+/*Responsivness for a smaller pc screen*/
+@media screen and (min-width: 801px) and (max-width: 1299px) {
+  /*Desktop CSS and ul CSS*/
+  .Desktop {
+    position: absolute;
+    width: 100%;
+    background-color: #f6f6f6;
+    overflow: hidden;
+  }
+
+  ul {
+    list-style: none;
+    column-count: 2 !important;
+    column-gap: 20px;
+    column-fill: auto;
+  }
+
+  ul > div {
+    display: inline-block;
+    width: 100%;
+    border-top: 1px solid #000;
+  }
+
+  .desktopListContainer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  /*Navbar CSS*/
+  .navbar {
+    width: 100%;
+  }
+
+  .nav-logo {
+    width: 30%;
+    margin: 10px;
+    margin-left: 10px;
+    background-image: url("https://i.postimg.cc/DZ2H1n6r/front-test-icon.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .nav-search {
+    display: flex;
+    flex: 1;
+    margin-top: 40px;
+    margin-right: 10px;
+    justify-content: right;
+    height: 2.5rem;
+    width: 50%;
+  }
+
+  /*Card CSS*/
+  .card {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+    left: -5%;
+    width: 100%;
+    border: solid 1px gray;
+    margin-bottom: 40px;
+    height: 30rem;
   }
 
   .card-price {
@@ -130,9 +274,10 @@
     width: 100%;
     height: auto;
     top: -20px;
+    object-fit: fill;
   }
 
-  .card-txt {
+  .txt-container {
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -140,13 +285,18 @@
     background-color: white;
     text-align: center;
     color: black;
-    height: 5rem;
+    height: 7rem;
     text-align: center;
     justify-content: center;
   }
+
+  .color-span {
+    color: #c2c2bd;
+  }
+
   .title {
     position: absolute;
-    top: -25%;
+    top: 0%;
     width: 100%;
     font-family: OpenSans;
     font-size: 1.8rem;
@@ -154,7 +304,7 @@
 
   .author {
     position: absolute;
-    bottom: -15%;
+    bottom: 0%;
     width: 100%;
     font-family: Myriad Pro;
     font-size: 1.2rem;
@@ -201,51 +351,60 @@
     display: block;
   }
 
-  .divSocial {
-    display: flex;
-    flex: 0.5;
-  }
-
-  #pageIndicator {
+  /*Search Bar CSS*/
+  .search-container {
+    background: #fff;
+    height: 30px;
+    border-radius: 30px;
+    padding: 10px 20px;
     display: flex;
     justify-content: center;
-    flex: 0.25;
+    align-items: center;
+    transition: 0.6s;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+      inset -7px -7px 10px 0px rgba(0, 0, 0, 0.1),
+      7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.3),
+      -4px -4px 6px rgba(116, 125, 136, 0.2);
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+      -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
   }
 
-  .pages {
-    display: flex;
-    flex: 0.25;
+  .search-container:hover > .search-input {
+    width: 400px;
   }
 
-  ul {
-    list-style: none;
-    column-count: 2 !important;
-    column-gap: 20px;
-    column-fill: auto;
+  .search-container .search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 0px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.8s;
   }
 
-  ul > div {
-    display: inline-block;
-    width: 100%;
-    border-top: 1px solid #000;
+  .search-container .search-btn .fas {
+    color: #5cbdbb;
+  }
+
+  .search-btn {
+    height: 100%;
   }
 }
 
 /*Responsivness for a bigger pc screen*/
-@media screen and (min-width: 1340px) {
+@media screen and (min-width: 1300px) {
+  /*Desktop Css*/
   .Desktop {
     position: relative;
     background-color: #f6f6f6;
     width: 100%;
   }
-  .search-box input[type="text"]:focus,
-  .search-box input[type="text"]:not(:placeholder-shown) {
-    width: 18rem;
-    transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  }
-  .search-box input[type="text"] {
-    font-size: 0.9rem;
-  }
+
   #desktopList {
     width: 90%;
     position: relative;
@@ -269,6 +428,11 @@
     border-top: 1px solid #000;
   }
 
+  .desktopListContainer {
+    width: 98%;
+  }
+
+  /*CARD CSS*/
   .card {
     display: block;
     column-span: 1;
@@ -279,17 +443,14 @@
     width: 100%;
     border: solid 1px gray;
     margin-bottom: 20px;
-  }
-
-  .desktopListContainer {
-    width: 98%;
+    height: 27rem;
   }
 
   .card-price {
     width: 10rem;
     height: 6rem;
     position: absolute;
-    top: 0;
+    top: 0px;
     background-color: white;
     color: black;
     -webkit-clip-path: polygon(100% 0, 0 0, 0 100%);
@@ -302,10 +463,10 @@
     width: 100%;
     height: 100%;
     top: -20px;
-    object-fit: contain;
+    object-fit: fill;
   }
 
-  .card-txt {
+  .txt-container {
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -318,9 +479,13 @@
     justify-content: center;
   }
 
+  .color-span {
+    color: #c2c2bd;
+  }
+
   .title {
     position: absolute;
-    top: -25%;
+    top: 0%;
     width: 100%;
     font-family: OpenSans;
     font-size: 2rem;
@@ -357,7 +522,7 @@
     height: 0%;
     width: 100%;
     top: 10;
-    transition: height 0.2s ease-out;
+    transition: height 0.1s ease-out;
     background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.466) 0%,
@@ -369,33 +534,19 @@
   .card-price:hover:before {
     height: 100%;
   }
+
   .likes {
+    z-index: 100;
+    position: absolute;
+    top: 0px;
+    height: 78.5%;
+    left: 0px;
+    width: 100%;
     display: none;
   }
-  .top-card:hover + .likes {
+
+  .top-card:hover .likes {
     display: block;
-  }
-
-  .divSocial {
-    display: flex;
-    flex: 0.3;
-    height: 8.1rem;
-  }
-
-  #pageIndicator {
-    display: flex;
-    justify-content: center;
-    flex: 0.3;
-    font-size: 1.5rem;
-  }
-
-  #pageIndicator h5 {
-    font-size: 1.5rem;
-  }
-
-  .pages {
-    display: flex;
-    flex: 0.3;
   }
 
   .desktopListContainer {
@@ -404,5 +555,73 @@
     display: flex;
     left: -1%;
     justify-content: center;
+  }
+
+  /*Navbar CSS*/
+  .navbar {
+    width: 100%;
+  }
+
+  .nav-logo {
+    width: 30%;
+    margin: 10px;
+    margin-left: 10px;
+    background-image: url("https://i.postimg.cc/DZ2H1n6r/front-test-icon.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .nav-search {
+    display: flex;
+    flex: 1;
+    margin-top: 40px;
+    margin-right: 10px;
+    justify-content: right;
+    height: 2.5rem;
+    width: 50%;
+  }
+
+  /*Search Bar CSS*/
+
+  .search-container {
+    background: #fff;
+    height: 30px;
+    border-radius: 30px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.6s;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+      inset -7px -7px 10px 0px rgba(0, 0, 0, 0.1),
+      7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.3),
+      -4px -4px 6px rgba(116, 125, 136, 0.2);
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+      -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .search-container:hover > .search-input {
+    width: 25rem;
+  }
+
+  .search-container .search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 0px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.8s;
+  }
+
+  .search-container .search-btn .fas {
+    color: #5cbdbb;
+  }
+  .search-btn {
+    height: 100%;
   }
 }

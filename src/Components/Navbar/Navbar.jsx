@@ -1,4 +1,4 @@
-import React, { useState, useGlobalContext } from "react";
+import React from "react";
 import "./Navbar.css";
 import SearchBar from "./searchBar";
 

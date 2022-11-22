@@ -1,40 +1,54 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { SearchContext } from "../../Context/searchContext";
 
 let page = 2;
 export const nextPage = () => {
   page++;
 };
 
+//New list to map
+let listItems = [];
+
 //Function that calls the Api and renders the list of items
 function RenderingArrayOfObjectsMobile() {
+  const searchContext = useContext(SearchContext);
   // Store list of all the items
   const [list, setItems] = useState([]);
 
   //Maping of the list of items and controling if the title contains x characters for the search
-  const listItems = list.map((element) => {
-    return (
-      <div className="card">
-        <div className="card-price">
-          <h3 className="price">{element.price}€</h3>
-        </div>
-        <img
-          src={element.main_attachment.small}
-          alt=""
-          className="card-img"
-        ></img>
-        <div className="card-txt">
-          <p className="title">{element.title}</p>
-          <p className="author">by {element.author}</p>
-          <div className="likes">
-            {element.likes_count}
+  listItems = list
+    .filter((item) => item.title.includes(searchContext.query))
+    .map((element) => {
+      return (
+        <div className="card" key={element.id}>
+          <div className="card-price">
+            <h3 className="price">{element.price}€</h3>
+          </div>
+          <img
+            src={element.main_attachment.small}
+            alt=""
+            className="card-img"
+          ></img>
+          <div className="txt-container">
+            <div className="card-txt">
+              <p className="title">{element.title}</p>
+              <p className="author">
+                <span className="color-span">by</span> {element.author}
+              </p>
+            </div>
             <br></br>
-            {element.liked}
+            <hr></hr>
+            <div className="likes">
+              <div className="like">
+                <span className="like-txt">{element.likes_count}</span>
+                <button className="like-logo-btn"></button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    );
-  });
+      );
+    });
 
   //Run the call to the api when the web is started
   useEffect(() => {
