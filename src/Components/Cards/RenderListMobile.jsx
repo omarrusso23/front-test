@@ -20,34 +20,104 @@ function RenderingArrayOfObjectsMobile() {
   listItems = list
     .filter((item) => item.title.includes(searchContext.query))
     .map((element) => {
-      return (
-        <div className="card" key={element.id}>
-          <div className="card-price">
-            <h3 className="price">{element.price}€</h3>
-          </div>
-          <img
-            src={element.main_attachment.small}
-            alt=""
-            className="card-img"
-          ></img>
-          <div className="txt-container">
-            <div className="card-txt">
-              <p className="title">{element.title}</p>
-              <p className="author">
-                <span className="color-span">by</span> {element.author}
-              </p>
+      if (element.liked) {
+        return (
+          <div className="card" key={element.id}>
+            <div className="card-price">
+              <h3 className="price">{element.price}€</h3>
             </div>
-            <br></br>
-            <hr></hr>
-            <div className="likes">
-              <div className="like">
-                <span className="like-txt">{element.likes_count}</span>
-                <button className="like-logo-btn"></button>
+            <img
+              src={element.main_attachment.small}
+              alt=""
+              className="card-img"
+            ></img>
+            <div className="txt-container">
+              <div className="card-txt">
+                <p className="title">{element.title}</p>
+                <p className="author">
+                  <span className="color-span">by</span> {element.author}
+                </p>
+              </div>
+              <br></br>
+              <hr></hr>
+              <div className="likes">
+                <div className="like">
+                  <span className="like-txt" id="like-txt-count">
+                    {element.likes_count}
+                  </span>
+                  <button
+                  /*className="like-logo-btn"
+                    onClick={async () => {
+                      await handleLike(element.id, element.liked);
+                    }}
+                    id="buttonIsLiked"*/
+                  >
+                    <i className="fas fa-thumbs-up" id="fontLike"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      } else if (element.liked === false) {
+        async function handleLike(e) {
+          fetch("http://localhost:3100/images/" + e + "/likes", {
+            method: "POST",
+            mode: "cors",
+            body: "",
+          }).then((res) => {
+            if (res.status === 204) {
+              console.log("like");
+              let number = document.getElementById("like-txt-count").innerText;
+              number++;
+              document.getElementById("like-txt-count").innerText = number;
+            } else {
+              alert(
+                "The Like function has failed. Please try again later. Error api status: " +
+                  res.status
+              );
+            }
+          });
+        }
+        return (
+          <div className="card" key={element.id}>
+            <div className="card-price">
+              <h3 className="price">{element.price}€</h3>
+            </div>
+            <img
+              src={element.main_attachment.small}
+              alt=""
+              className="card-img"
+            ></img>
+            <div className="txt-container">
+              <div className="card-txt">
+                <p className="title">{element.title}</p>
+                <p className="author">
+                  <span className="color-span">by</span> {element.author}
+                </p>
+              </div>
+              <br></br>
+              <hr></hr>
+              <div className="likes">
+                <div className="like">
+                  <span className="like-txt" id="like-txt-count">
+                    {element.likes_count}
+                  </span>
+                  <button
+                    className="like-logo-btn"
+                    onClick={async () => {
+                      await handleLike(element.id, element.liked);
+                    }}
+                    id="buttonIsNotLiked"
+                  >
+                    <i className="fas fa-thumbs-up" id="fontLike"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
     });
 
   //Run the call to the api when the web is started

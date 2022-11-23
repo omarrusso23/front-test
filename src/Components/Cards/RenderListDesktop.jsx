@@ -21,35 +21,117 @@ const RenderingArrayOfObjects = () => {
   listItems = list
     .filter((item) => item.title.includes(searchContext.query))
     .map((element) => {
-      return (
-        <div className="card" key={element.id}>
-          <div className="top-card">
-            <div className="likes">
-              <div className="like">
-                <span className="like-txt">{element.likes_count}</span>
-                <button className="like-logo-btn"></button>
+      //If the item is liked
+      if (element.liked) {
+        async function handleLike(likes) {
+          console.log("unlike");
+          likes--;
+          console.log("inertex");
+          document.getElementById("id" + element.id).innerText = likes;
+          console.log(document.getElementById("id" + element.id).innerText);
+        }
+        return (
+          <div className="card" key={element.id}>
+            <div className="top-card">
+              <div className="likes">
+                <div className="like">
+                  <button
+                    className="like-logo-btn"
+                    onClick={async () => {
+                      await handleLike(element.likes_count);
+                    }}
+                    id="buttonIsLiked"
+                  >
+                    <i className="fas fa-thumbs-up" id="fontLike"></i>
+                  </button>
+                  <br></br>
+                  <span className="like-txt" id={"id" + element.id}>
+                    {element.likes_count}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="card-price">
+              <p className="price">{element.price}€</p>
+            </div>
+            <img
+              src={element.main_attachment.big}
+              alt=""
+              className="card-img"
+            ></img>
+
+            <div className="txt-container">
+              <div className="card-txt">
+                <p className="title">{element.title}</p>
+                <p className="author">
+                  <span className="color-span">by</span> {element.author}
+                </p>
               </div>
             </div>
           </div>
-          <div className="card-price">
-            <p className="price">{element.price}€</p>
-          </div>
-          <img
-            src={element.main_attachment.big}
-            alt=""
-            className="card-img"
-          ></img>
+        );
+      }
+      //If the item wasn't liked
+      else if (element.liked === false) {
+        async function handleLike(e, likes) {
+          fetch("http://localhost:3100/images/" + e + "/likes", {
+            method: "POST",
+            mode: "cors",
+            body: "",
+          })
+            .then((res) => {
+              if (res.status === 204) {
+                console.log("like");
+                likes++;
+                document.getElementById("id" + element.id).innerText = likes;
+                console.log(
+                  document.getElementById("id" + element.id).innerText
+                );
+              }
+            })
+            .catch((er) => alert("Error: " + er.message));
+        }
+        return (
+          <div className="card" key={element.id}>
+            <div className="top-card">
+              <div className="likes">
+                <div className="like">
+                  <button
+                    className="like-logo-btn"
+                    onClick={async () => {
+                      await handleLike(element.id, element.likes_count);
+                    }}
+                    id="buttonIsNotLiked"
+                  >
+                    <i className="fas fa-thumbs-up" id="fontLike"></i>
+                  </button>
+                  <br></br>
+                  <span className="like-txt" id={"id" + element.id}>
+                    {element.likes_count}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="card-price">
+              <p className="price">{element.price}€</p>
+            </div>
+            <img
+              src={element.main_attachment.big}
+              alt=""
+              className="card-img"
+            ></img>
 
-          <div className="txt-container">
-            <div className="card-txt">
-              <p className="title">{element.title}</p>
-              <p className="author">
-                <span className="color-span">by</span> {element.author}
-              </p>
+            <div className="txt-container">
+              <div className="card-txt">
+                <p className="title">{element.title}</p>
+                <p className="author">
+                  <span className="color-span">by</span> {element.author}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      }
     });
 
   //Run the call to the api when the web is started

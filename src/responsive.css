@@ -82,20 +82,36 @@
   }
 
   .like-logo-btn {
-    background-image: url("https://www.freeiconspng.com/uploads/black-like-icon-png-13.png");
-    background-color: white;
+    background-color: transparent;
     position: relative;
-    height: 30px;
-    width: 30px;
-    top: -5px;
+    height: 36px;
+    width: 40px;
+    top: -8px;
     background-size: contain;
     object-fit: fill;
     border: transparent;
+    font-size: 24px;
+  }
+
+  #buttonIsLiked {
+    color: #83f3c6;
+  }
+
+  #buttonIsLiked:focus {
+    color: black;
+  }
+
+  #buttonIsNotLiked {
+    color: black;
+  }
+
+  #buttonIsNotLiked:focus {
+    color: #83f3c6;
   }
 
   .like-txt {
     position: relative;
-    top: -10px;
+    top: -8px;
     font-size: 1.3rem;
     padding-right: 10px;
   }
@@ -534,21 +550,65 @@
   .card-price:hover:before {
     height: 100%;
   }
-
   .likes {
     z-index: 100;
-    position: absolute;
-    top: 0px;
-    height: 78.5%;
-    left: 0px;
-    width: 100%;
+    position: relative;
+    top: 10%;
+    height: 70px;
+    right: -80%;
+    width: 50px;
     display: none;
   }
 
-  .top-card:hover .likes {
-    display: block;
+  .like-logo-btn {
+    background-color: transparent;
+    color: white;
+    position: relative;
+    height: 50px;
+    width: 50px;
+    top: 0px;
+    background-size: contain;
+    object-fit: fill;
+    border: transparent;
   }
 
+  .like-logo-btn:hover {
+    transform: scale(1.1);
+    transition: 0.1s;
+  }
+
+  #buttonIsLiked {
+    color: #83f3c6;
+  }
+
+  #buttonIsLiked:focus {
+    color: white;
+  }
+
+  #buttonIsNotLiked {
+    color: white;
+  }
+
+  #buttonIsNotLiked:focus {
+    color: #83f3c6;
+  }
+
+  #fontLike {
+    font-size: 40px;
+  }
+
+  .like-txt {
+    position: relative;
+    bottom: 0px;
+    color: rgb(255, 255, 255);
+    font-size: 1.3rem;
+    padding-right: 10px;
+  }
+
+  .top-card:hover .likes {
+    display: flex;
+    justify-content: center;
+  }
   .desktopListContainer {
     width: 100%;
     position: relative;

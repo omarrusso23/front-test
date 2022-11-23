@@ -33,7 +33,7 @@ function useWindowDimensions() {
 const Desktop = () => {
   const { width } = useWindowDimensions();
   //if the window dimensions are bigger than 840 we show the desktop version witch is between 2 and 4 columns
-  if ({ width }.width >= 840) {
+  if ({ width }.width >= 800) {
     return (
       <div className="Desktop">
         <div className="navbar">
