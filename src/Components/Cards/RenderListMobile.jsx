@@ -21,6 +21,14 @@ function RenderingArrayOfObjectsMobile() {
     .filter((item) => item.title.includes(searchContext.query))
     .map((element) => {
       if (element.liked) {
+        async function handleLike(likes) {
+          console.log("unlike");
+          likes--;
+          console.log("inertex");
+          document.getElementById("id" + element.id).innerText = likes;
+          console.log(document.getElementById("id" + element.id).innerText);
+        }
+
         return (
           <div className="card" key={element.id}>
             <div className="card-price">
@@ -42,15 +50,15 @@ function RenderingArrayOfObjectsMobile() {
               <hr></hr>
               <div className="likes">
                 <div className="like">
-                  <span className="like-txt" id="like-txt-count">
+                  <span className="like-txt" id={"id" + element.id}>
                     {element.likes_count}
                   </span>
                   <button
-                  /*className="like-logo-btn"
+                    className="like-logo-btn"
                     onClick={async () => {
-                      await handleLike(element.id, element.liked);
+                      await handleLike(element.likes_count);
                     }}
-                    id="buttonIsLiked"*/
+                    id="buttonIsLiked"
                   >
                     <i className="fas fa-thumbs-up" id="fontLike"></i>
                   </button>
@@ -60,24 +68,23 @@ function RenderingArrayOfObjectsMobile() {
           </div>
         );
       } else if (element.liked === false) {
-        async function handleLike(e) {
+        async function handleLike(e, likes) {
           fetch("http://localhost:3100/images/" + e + "/likes", {
             method: "POST",
             mode: "cors",
             body: "",
-          }).then((res) => {
-            if (res.status === 204) {
-              console.log("like");
-              let number = document.getElementById("like-txt-count").innerText;
-              number++;
-              document.getElementById("like-txt-count").innerText = number;
-            } else {
-              alert(
-                "The Like function has failed. Please try again later. Error api status: " +
-                  res.status
-              );
-            }
-          });
+          })
+            .then((res) => {
+              if (res.status === 204) {
+                console.log("like");
+                likes++;
+                document.getElementById("id" + element.id).innerText = likes;
+                console.log(
+                  document.getElementById("id" + element.id).innerText
+                );
+              }
+            })
+            .catch((er) => alert("Error: " + er.message));
         }
         return (
           <div className="card" key={element.id}>
@@ -100,13 +107,13 @@ function RenderingArrayOfObjectsMobile() {
               <hr></hr>
               <div className="likes">
                 <div className="like">
-                  <span className="like-txt" id="like-txt-count">
+                  <span className="like-txt" id={"id" + element.id}>
                     {element.likes_count}
                   </span>
                   <button
                     className="like-logo-btn"
                     onClick={async () => {
-                      await handleLike(element.id, element.liked);
+                      await handleLike(element.id, element.likes_count);
                     }}
                     id="buttonIsNotLiked"
                   >
