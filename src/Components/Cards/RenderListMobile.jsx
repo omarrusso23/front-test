@@ -130,7 +130,7 @@ function RenderingArrayOfObjectsMobile() {
   //Run the call to the api when the web is started
   useEffect(() => {
     const getApiData = async () => {
-      const response = await fetch("http://192.168.1.134:3100/images?page=1")
+      const response = await fetch("http://localhost:3100/images?page=1")
         .then((response) => response.json())
         .catch((error) =>
           alert(
@@ -148,9 +148,7 @@ function RenderingArrayOfObjectsMobile() {
 
   //Api with page number for the infinite scroll
   const getApiData = async () => {
-    const response = await fetch(
-      "http://192.168.1.134:3100/images?page=" + page
-    );
+    const response = await fetch("http://localhost:3100/images?page=" + page);
     const data = await response.json();
     return data;
   };

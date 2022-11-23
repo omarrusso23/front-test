@@ -361,10 +361,63 @@
     height: 100%;
   }
   .likes {
+    z-index: 100;
+    position: relative;
+    top: 10%;
+    height: 70px;
+    right: -80%;
+    width: 50px;
     display: none;
   }
-  .top-card:hover + .likes {
-    display: block;
+
+  .like-logo-btn {
+    background-color: transparent;
+    color: white;
+    position: relative;
+    height: 50px;
+    width: 50px;
+    top: 0px;
+    background-size: contain;
+    object-fit: fill;
+    border: transparent;
+  }
+
+  .like-logo-btn:hover {
+    transform: scale(1.1);
+    transition: 0.1s;
+  }
+
+  #buttonIsLiked {
+    color: #83f3c6;
+  }
+
+  #buttonIsLiked:focus {
+    color: white;
+  }
+
+  #buttonIsNotLiked {
+    color: white;
+  }
+
+  #buttonIsNotLiked:focus {
+    color: #83f3c6;
+  }
+
+  .like-txt {
+    position: relative;
+    bottom: 0px;
+    color: rgb(255, 255, 255);
+    font-size: 1.3rem;
+    padding-right: 10px;
+  }
+
+  #fontLike {
+    font-size: 40px;
+  }
+
+  .top-card:hover .likes {
+    display: flex;
+    justify-content: center;
   }
 
   /*Search Bar CSS*/
@@ -550,6 +603,7 @@
   .card-price:hover:before {
     height: 100%;
   }
+
   .likes {
     z-index: 100;
     position: relative;
@@ -609,6 +663,7 @@
     display: flex;
     justify-content: center;
   }
+
   .desktopListContainer {
     width: 100%;
     position: relative;
@@ -681,6 +736,7 @@
   .search-container .search-btn .fas {
     color: #5cbdbb;
   }
+
   .search-btn {
     height: 100%;
   }
